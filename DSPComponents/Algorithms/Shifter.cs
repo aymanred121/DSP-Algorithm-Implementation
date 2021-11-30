@@ -15,7 +15,15 @@ namespace DSPAlgorithms.Algorithms
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            List<int> shiftedIndecies = new List<int>();
+            if (InputSignal.folded)
+                ShiftingValue = -ShiftingValue;
+           for (int i = 0; i < InputSignal.SamplesIndices.Count; i++)
+            {
+               
+              shiftedIndecies.Add(InputSignal.SamplesIndices[i] - ShiftingValue);
+            }
+            OutputShiftedSignal = new Signal(InputSignal.Samples, shiftedIndecies,InputSignal.Periodic,InputSignal.folded);
         }
     }
 }

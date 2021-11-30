@@ -41,7 +41,7 @@ namespace DSPComponentsUnitTest
         
         [TestMethod]
         public void IFFT_TestMethod3()
-        {
+            {
             InverseDiscreteFourierTransform IFFT = new InverseDiscreteFourierTransform();
             var FrequenciesAmplitudes = new List<float> { 64, 20.9050074380220f, 11.3137084989848f, 8.65913760233915f, 8, 8.65913760233915f, 11.3137084989848f, 20.9050074380220f };
             var FrequenciesPhaseShifts = new List<float> { 0, 1.96349540849362f, 2.35619449019235f, 2.74889357189107f, -3.14159265358979f, -2.74889357189107f, -2.35619449019235f, -1.96349540849362f };

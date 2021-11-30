@@ -14,7 +14,15 @@ namespace DSPAlgorithms.Algorithms
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            List<float> foldedSignal = InputSignal.Samples;
+            List<int> foldedIndex = InputSignal.SamplesIndices;
+            foldedSignal.Reverse();
+            for(int i = 0; i < foldedIndex.Count; i++)
+            {
+                foldedIndex[i] = -foldedIndex[i];
+            }
+            foldedIndex.Reverse();
+            OutputFoldedSignal = new Signal(foldedSignal,foldedIndex, InputSignal.Periodic, !InputSignal.folded);
         }
     }
 }

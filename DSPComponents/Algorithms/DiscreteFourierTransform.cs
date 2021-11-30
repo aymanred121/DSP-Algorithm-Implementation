@@ -42,27 +42,7 @@ namespace DSPAlgorithms.Algorithms
             DFT();
             SaveToFile();
 
-
-         
         }
-
-        private void SaveToFile()
-        {
-            string fileName = @"C:\Users\ayman\Desktop\5th semster\DSP\DFT.txt";
-            if (!File.Exists(fileName))
-            {
-
-                using (StreamWriter writer = File.CreateText(fileName))
-                {
-                   // writer.WriteLine(outputAmps.Count+" "+FrequenciesPhaseShifts.Count);
-                    for(int i = 0; i < nofSample; i++)
-                    {
-                        writer.WriteLine(OutputFreqDomainSignal.FrequenciesAmplitudes[i] + " " + OutputFreqDomainSignal.FrequenciesPhaseShifts[i]);
-                    }
-                }
-            }
-        }
-
         private void Initalizer()
         {
             outputAmps = new List<float>();
@@ -71,7 +51,6 @@ namespace DSPAlgorithms.Algorithms
             sigmoidList = new List<Complex>();
             nofSample = InputTimeDomainSignal.Samples.Count;
         }
-
         private void DFT()
         {
             float nofSample = InputTimeDomainSignal.Samples.Count;
@@ -104,5 +83,22 @@ namespace DSPAlgorithms.Algorithms
                return((float)(Math.Atan(c.Imaginary / c.Real) - Math.PI));
             return 0;
         }
+        private void SaveToFile()
+        {
+            string fileName = @"C:\Users\ayman\Desktop\Pdf\5th semester\DSP\DFT.txt";
+            if (!File.Exists(fileName))
+            {
+
+                using (StreamWriter writer = File.CreateText(fileName))
+                {
+                    // writer.WriteLine(outputAmps.Count+" "+FrequenciesPhaseShifts.Count);
+                    for (int i = 0; i < nofSample; i++)
+                    {
+                        writer.WriteLine(OutputFreqDomainSignal.FrequenciesAmplitudes[i] + " " + OutputFreqDomainSignal.FrequenciesPhaseShifts[i]);
+                    }
+                }
+            }
+        }
+
     }
 }

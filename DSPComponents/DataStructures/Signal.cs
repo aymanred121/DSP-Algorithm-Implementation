@@ -14,6 +14,7 @@ namespace DSPAlgorithms.DataStructures
         public List<float> FrequenciesAmplitudes { get; set; }
         public List<float> FrequenciesPhaseShifts { get; set; }
         public bool Periodic { get; set; }
+        public bool folded { get; set; }
 
         public Signal(List<float> _SignalSamples, bool _periodic)
         {
@@ -29,7 +30,15 @@ namespace DSPAlgorithms.DataStructures
             Samples = _SignalSamples;
             Periodic = _periodic;
             SamplesIndices = _SignalIndixes;
+        } 
+        public Signal(List<float> _SignalSamples, List<int> _SignalIndixes, bool _periodic,bool _isFoldeed)
+        {
+            Samples = _SignalSamples;
+            Periodic = _periodic;
+            SamplesIndices = _SignalIndixes;
+            folded = _isFoldeed;
         }
+
         public Signal(bool _periodic, List<float> _SignalFrquencies, List<float> _SignalFrequenciesAmplitudes, List<float> _SignalFrequenciesPhaseShifts)
         {
             Periodic = _periodic;
